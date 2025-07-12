@@ -1,131 +1,179 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <title>FarmCore Reviews</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f5f2ed;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #2f5621;
-            padding: 20px;
-            text-align: center;
-            color: white;
-            font-size: 1.5rem;
-        }
-        .container {
-            max-width: 700px;
-            margin: 40px auto;
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px #ccc;
-        }
-        .stars span {
-            font-size: 30px;
-            color: #ccc;
-            cursor: pointer;
-        }
-        .stars span.selected,
-        .stars span:hover,
-        .stars span:hover ~ span {
-            color: gold;
-        }
-        textarea {
-            width: 100%;
-            height: 100px;
-            margin-top: 10px;
-            padding: 10px;
-        }
-        button {
-            background: #2f5621;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            margin-top: 10px;
-            cursor: pointer;
-        }
-        .review-list {
-            margin-top: 30px;
-        }
-        .review {
-            background: #f1f1f1;
-            padding: 15px;
-            border-radius: 6px;
-            margin-bottom: 10px;
-        }
-        .review .rating {
-            color: gold;
-            margin-bottom: 5px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <title>FarmCore Reviews</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f2ed;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #2f5621;
+      padding: 20px;
+      text-align: center;
+      color: white;
+      font-size: 1.5rem;
+    }
+    .container {
+      max-width: 700px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ccc;
+    }
+    input, select, textarea {
+      width: 100%;
+      margin-top: 10px;
+      padding: 10px;
+      font-size: 1em;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    label {
+      margin-top: 15px;
+      display: block;
+      font-weight: bold;
+    }
+    .stars {
+      display: flex;
+      justify-content: space-between;
+      margin: 10px 0;
+      direction: ltr;
+      font-size: 1.5em;
+    }
+    .stars span {
+      cursor: pointer;
+      color: lightgray;
+    }
+    .stars span.selected {
+      color: gold;
+    }
+    button {
+      background: #2f5621;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      margin-top: 20px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .review-list {
+      margin-top: 30px;
+    }
+    .review {
+      background: #f1f1f1;
+      padding: 15px;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+    .review .rating {
+      color: gold;
+      margin-bottom: 5px;
+    }
+  </style>
 </head>
 <body>
-    <header>FarmCore Reviews</header>
-    <div class="container">
-        <h2>Leave a Review</h2>
-        
-    <p><strong>Star Guide:</strong></p>
-    <ul style="text-align: left; padding-left: 40px;">
-      <li>★★★★★ – Excellent, trustworthy, fair</li>
-      <li>★★★★☆ – Good, reliable, minor issues</li>
-      <li>★★★☆☆ – Average, neutral experience</li>
-      <li>★★☆☆☆ – Poor, frustrating</li>
-      <li>★☆☆☆☆ – Predatory, avoid</li>
-    </ul>
-    <div class="stars" id="starContainer">
-    
-            <span data-val="1">&#9733;</span>
-            <span data-val="2">&#9733;</span>
-            <span data-val="3">&#9733;</span>
-            <span data-val="4">&#9733;</span>
-            <span data-val="5">&#9733;</span>
-        </div>
-        <textarea id="reviewText" placeholder="Write your review here..."></textarea>
-        <button onclick="submitReview()">Submit</button>
+  <header>FarmCore Reviews</header>
+  <div class="container">
+    <h2>Leave a Review</h2>
+    <form id="reviewForm">
+      <label for="name">Your Name*</label>
+      <input type="text" id="name" required />
 
-        <h2>Recent Reviews</h2>
-        <div class="review-list" id="reviewList">
-            <div class="review">
-                <div class="rating">★★★★★</div>
-                <div>Great buyer, paid on time and gave a fair price!</div>
-            </div>
-            <div class="review">
-                <div class="rating">★★★☆☆</div>
-                <div>Okay experience, communication could be better.</div>
-            </div>
-        </div>
+      <label for="email">Email (not published)*</label>
+      <input type="email" id="email" required />
+
+      <label for="buyer">Business/Buyer Name*</label>
+      <input type="text" id="buyer" required />
+
+      <label for="type">Product/Service Type*</label>
+      <input type="text" id="type" required placeholder="e.g. Grain Buyer, Livestock Transport" />
+
+      <label for="category">Organic or Conventional*</label>
+      <select id="category" required>
+        <option value="">-- Select --</option>
+        <option value="organic">Organic</option>
+        <option value="conventional">Conventional</option>
+        <option value="both">Both</option>
+      </select>
+
+      <label>Rating*</label>
+      <div class="stars" id="starContainer">
+        <span data-val="1">&#9733;</span>
+        <span data-val="2">&#9733;</span>
+        <span data-val="3">&#9733;</span>
+        <span data-val="4">&#9733;</span>
+        <span data-val="5">&#9733;</span>
+      </div>
+
+      <p><strong>Star Guide:</strong></p>
+      <ul style="padding-left: 20px;">
+        <li>★★★★★ – Excellent, trustworthy, fair</li>
+        <li>★★★★☆ – Good, reliable, minor issues</li>
+        <li>★★★☆☆ – Average, neutral experience</li>
+        <li>★★☆☆☆ – Poor, frustrating</li>
+        <li>★☆☆☆☆ – Predatory, avoid</li>
+      </ul>
+
+      <label for="comment">Comment*</label>
+      <textarea id="comment" required></textarea>
+
+      <label for="proof">Optional Upload</label>
+      <input type="file" id="proof" />
+
+      <button type="submit">Submit Review</button>
+    </form>
+
+    <h2>Recent Reviews</h2>
+    <div class="review-list" id="reviewList">
+      <div class="review">
+        <div class="rating">★★★★★</div>
+        <div><strong>John D.:</strong> Great buyer, paid on time and gave a fair price!</div>
+      </div>
+      <div class="review">
+        <div class="rating">★★★☆☆</div>
+        <div><strong>Lisa R.:</strong> Okay experience, communication could be better.</div>
+      </div>
     </div>
+  </div>
 
-    <script>
-        let stars = document.querySelectorAll("#starContainer span");
-        let selectedRating = 0;
-        stars.forEach((star, i) => {
-            star.addEventListener("click", () => {
-                selectedRating = i + 1;
-                updateStars();
-            });
-        });
-        function updateStars() {
-            stars.forEach((s, i) => {
-                s.classList.toggle("selected", i < selectedRating);
-            });
-        }
-        function submitReview() {
-            const text = document.getElementById("reviewText").value.trim();
-            if (selectedRating === 0 || text === "") return;
-            const reviewDiv = document.createElement("div");
-            reviewDiv.className = "review";
-            reviewDiv.innerHTML = `<div class="rating">${"★".repeat(selectedRating)}${"☆".repeat(5 - selectedRating)}</div><div>${text}</div>`;
-            document.getElementById("reviewList").prepend(reviewDiv);
-            document.getElementById("reviewText").value = "";
-            selectedRating = 0;
-            updateStars();
-        }
-    </script>
+  <script>
+    const stars = document.querySelectorAll("#starContainer span");
+    let selectedRating = 0;
+    stars.forEach((star, i) => {
+      star.addEventListener("click", () => {
+        selectedRating = i + 1;
+        updateStars();
+      });
+    });
+    function updateStars() {
+      stars.forEach((s, i) => {
+        s.classList.toggle("selected", i < selectedRating);
+      });
+    }
+
+    document.getElementById("reviewForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const name = document.getElementById("name").value;
+      const comment = document.getElementById("comment").value;
+      if (selectedRating === 0 || name.trim() === "" || comment.trim() === "") return;
+
+      const reviewDiv = document.createElement("div");
+      reviewDiv.className = "review";
+      reviewDiv.innerHTML = `
+        <div class="rating">${"★".repeat(selectedRating)}${"☆".repeat(5 - selectedRating)}</div>
+        <div><strong>${name}:</strong> ${comment}</div>
+      `;
+      document.getElementById("reviewList").prepend(reviewDiv);
+      this.reset();
+      selectedRating = 0;
+      updateStars();
+    });
+  </script>
 </body>
 </html>
