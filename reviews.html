@@ -30,20 +30,22 @@
       color: #2f5d3a;
     }
     .stars {
+      direction: rtl;
       display: flex;
       justify-content: center;
-      font-size: 2em;
-      cursor: pointer;
+      gap: 5px;
     }
     .stars input {
       display: none;
     }
     .stars label {
+      font-size: 2em;
       color: lightgray;
-      transition: color 0.2s;
+      cursor: pointer;
     }
     .stars input:checked ~ label,
-    .stars input:hover ~ label {
+    .stars label:hover,
+    .stars label:hover ~ label {
       color: gold;
     }
     textarea {
