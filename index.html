@@ -1,60 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>FarmCore</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f7f5f2;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-    }
-    header {
-      background-color: #2f5d3a;
-      padding: 20px;
-      color: white;
-    }
-    header img {
-      max-height: 150px;
-      margin-bottom: 10px;
-    }
-    nav a {
-      margin: 0 10px;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    main {
-      padding: 40px 20px;
-    }
-    footer {
-      background-color: #eee;
-      padding: 10px;
-      color: #555;
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FarmCore</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f2ed;
+            color: #333;
+        }
+        header {
+            background: #2f5621;
+            padding: 20px;
+            text-align: center;
+        }
+        header img {
+            height: 100px;
+        }
+        h1 {
+            color: white;
+            margin: 10px 0 0;
+        }
+        .hero {
+            background-image: url('farm-photo.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+        }
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+        a.button {
+            display: inline-block;
+            background: #2f5621;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 6px;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <img src="farmcore-logo.png" alt="FarmCore Logo">
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="reviews.html">Reviews</a>
-    </nav>
-  </header>
-  <main>
-    <p><strong>Our Story:</strong> We wanted an opportunity for farmers to share their experiences — both good and bad — to smooth the road for every farmer’s success.</p>
-    <p>Let the good companies be celebrated for forwarding the industry, and let the bad ones be exposed as predators.</p>
-    <p><em>Motto placeholder here.</em></p>
-  </main>
-  <footer>
-    &copy; 2025 FarmCore — Built by Farmers, for Farmers.
-  </footer>
+    <header>
+        <img src="farmcore-logo.png" alt="FarmCore Logo" />
+        <h1>FarmCore</h1>
+    </header>
+    <div class="hero"></div>
+    <div class="content">
+        <h2>Welcome to FarmCore</h2>
+        <p>Sharing real reviews to help farmers make better decisions.</p>
+        <a class="button" href="reviews.html">Read or Leave a Review</a>
+    </div>
 </body>
 </html>

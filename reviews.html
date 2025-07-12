@@ -1,106 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>FarmCore Reviews</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f7f5f2;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background-color: #2f5d3a;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-    main {
-      max-width: 600px;
-      margin: 30px auto;
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-    h2 {
-      text-align: center;
-      color: #2f5d3a;
-    }
-    .stars {
-      direction: rtl;
-      display: flex;
-      justify-content: center;
-      gap: 5px;
-    }
-    .stars input {
-      display: none;
-    }
-    .stars label {
-      font-size: 2em;
-      color: lightgray;
-      cursor: pointer;
-    }
-    .stars input:checked ~ label,
-    .stars label:hover,
-    .stars label:hover ~ label {
-      color: gold;
-    }
-    textarea {
-      width: 100%;
-      height: 100px;
-      margin-top: 10px;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 1em;
-    }
-    button {
-      margin-top: 15px;
-      padding: 10px 20px;
-      background-color: #2f5d3a;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      font-size: 1em;
-      cursor: pointer;
-    }
-    section.reviews {
-      margin-top: 40px;
-    }
-    .review {
-      background: #f1f1f1;
-      padding: 10px;
-      border-radius: 5px;
-      margin-bottom: 10px;
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <title>FarmCore Reviews</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f2ed;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #2f5621;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+        .container {
+            max-width: 700px;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ccc;
+        }
+        .stars span {
+            font-size: 30px;
+            color: #ccc;
+            cursor: pointer;
+        }
+        .stars span.selected,
+        .stars span:hover,
+        .stars span:hover ~ span {
+            color: gold;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin-top: 10px;
+            padding: 10px;
+        }
+        button {
+            background: #2f5621;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        .review-list {
+            margin-top: 30px;
+        }
+        .review {
+            background: #f1f1f1;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+        }
+        .review .rating {
+            color: gold;
+            margin-bottom: 5px;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>FarmCore Reviews</h1>
-  </header>
-  <main>
-    <h2>Leave a Review</h2>
-    <form id="reviewForm">
-      <div class="stars">
-        <input type="radio" name="star" id="star5" value="5"><label for="star5">&#9733;</label>
-        <input type="radio" name="star" id="star4" value="4"><label for="star4">&#9733;</label>
-        <input type="radio" name="star" id="star3" value="3"><label for="star3">&#9733;</label>
-        <input type="radio" name="star" id="star2" value="2"><label for="star2">&#9733;</label>
-        <input type="radio" name="star" id="star1" value="1"><label for="star1">&#9733;</label>
-      </div>
-      <textarea placeholder="Write your review here..."></textarea>
-      <button type="submit">Submit</button>
-    </form>
+    <header>FarmCore Reviews</header>
+    <div class="container">
+        <h2>Leave a Review</h2>
+        <div class="stars" id="starContainer">
+            <span data-val="1">&#9733;</span>
+            <span data-val="2">&#9733;</span>
+            <span data-val="3">&#9733;</span>
+            <span data-val="4">&#9733;</span>
+            <span data-val="5">&#9733;</span>
+        </div>
+        <textarea id="reviewText" placeholder="Write your review here..."></textarea>
+        <button onclick="submitReview()">Submit</button>
 
-    <section class="reviews">
-      <h2>Recent Reviews</h2>
-      <div class="review">⭐⭐⭐⭐⭐ Great buyer, paid on time and gave a fair price!</div>
-      <div class="review">⭐⭐⭐ Okay experience, communication could be better.</div>
-    </section>
-  </main>
+        <h2>Recent Reviews</h2>
+        <div class="review-list" id="reviewList">
+            <div class="review">
+                <div class="rating">★★★★★</div>
+                <div>Great buyer, paid on time and gave a fair price!</div>
+            </div>
+            <div class="review">
+                <div class="rating">★★★☆☆</div>
+                <div>Okay experience, communication could be better.</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let stars = document.querySelectorAll("#starContainer span");
+        let selectedRating = 0;
+        stars.forEach((star, i) => {
+            star.addEventListener("click", () => {
+                selectedRating = i + 1;
+                updateStars();
+            });
+        });
+        function updateStars() {
+            stars.forEach((s, i) => {
+                s.classList.toggle("selected", i < selectedRating);
+            });
+        }
+        function submitReview() {
+            const text = document.getElementById("reviewText").value.trim();
+            if (selectedRating === 0 || text === "") return;
+            const reviewDiv = document.createElement("div");
+            reviewDiv.className = "review";
+            reviewDiv.innerHTML = `<div class="rating">${"★".repeat(selectedRating)}${"☆".repeat(5 - selectedRating)}</div><div>${text}</div>`;
+            document.getElementById("reviewList").prepend(reviewDiv);
+            document.getElementById("reviewText").value = "";
+            selectedRating = 0;
+            updateStars();
+        }
+    </script>
 </body>
 </html>
