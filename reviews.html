@@ -1,183 +1,74 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <title>FarmCore - Reviews</title>
-  
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f5f2ed;
-      margin: 0;
-    }
-    .container {
-      max-width: 900px;
-      margin: 30px auto;
-      background: white;
-      padding: 25px;
-      border-radius: 10px;
-      box-shadow: 0 0 8px #ccc;
-    }
-    h2 {
-      color: #2f5621;
-      border-bottom: 2px solid #ddd;
-      padding-bottom: 5px;
-    }
-    form {
-      margin-top: 30px;
-    }
-    input, select, textarea {
-      width: 100%;
-      margin-top: 10px;
-      padding: 10px;
-      font-size: 1em;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-    }
-    label {
-      margin-top: 15px;
-      display: block;
-      font-weight: bold;
-    }
-    button {
-      margin-top: 15px;
-      background: #2f5621;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      font-size: 1em;
-      cursor: pointer;
-    }
-    .stars span {
-      font-size: 24px;
-      cursor: pointer;
-      color: gray;
-    }
-    .stars span.selected {
-      color: gold;
-    }
-    .review {
-      background: #f2f2f2;
-      padding: 15px;
-      border-radius: 6px;
-      margin-bottom: 15px;
-    }
-  </style>
+    <title>FarmCore Reviews</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f2ed;
+        }
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 160px;
+            height: 100%;
+            background-color: #2e5b2e;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .sidebar a {
+            display: block;
+            margin-bottom: 20px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .main-content {
+            margin-left: 180px;
+            padding: 20px;
+        }
+        .review-box {
+            background-color: #fff;
+            border-radius: 6px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        .star-rating {
+            color: #f0c420;
+            margin-bottom: 10px;
+        }
+        .review-entry {
+            background: #e9e9e9;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 4px;
+        }
+        .write-review {
+            margin-top: 30px;
+        }
+    </style>
 </head>
 <body>
-
-<div class="sidebar">
-  
-  
-  
-</div>
-<style>
-.sidebar {
-  height: 100%;
-  width: 180px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: #2f5621;
-  padding-top: 20px;
-}
-.sidebar a {
-  padding: 12px 20px;
-  text-decoration: none;
-  font-size: 16px;
-  color: white;
-  display: block;
-}
-.sidebar a:hover {
-  background-color: #4a7a36;
-}
-.main {
-  margin-left: 200px;
-  padding: 20px;
-}
-</style>
-
-<div class='main'>
-
-
-  
-  
-  
-
-<style>
-.topnav {
-  background-color: #2f5621;
-  overflow: hidden;
-  padding: 10px 0;
-  text-align: center;
-}
-.topnav a {
-  color: white;
-  padding: 14px 20px;
-  text-decoration: none;
-  font-size: 17px;
-  display: inline-block;
-}
-.topnav a:hover {
-  background-color: #4a7a36;
-}
-</style>
-
-  
-  <div class="main">
-    <div class="container">
-      <h2>Reviews </h2>
-
-      <div class="review">
-        <p><strong>⭐⭐⭐⭐⭐</strong></p>
-        <p><strong>Business:</strong> Prairie Grain Co.</p>
-        <p>Reliable buyer, fair weights and timely payments every year.</p>
-      </div>
-      <div class="review">
-        <p><strong>⭐⭐☆☆☆</strong></p>
-        <p><strong>Business:</strong> Farm Freight Ltd.</p>
-        <p>Missed the pickup window and hard to get hold of dispatch.</p>
-      </div>
-
-      <hr>
-      <div id="reviewForm">
-        <h3>Post a Review</h3>
-        <form id="reviewSubmission">
-          <label>Name*</label>
-          <input type="text" required>
-          <label>Email*</label>
-          <input type="email" required>
-          <label>Business Name*</label>
-          <input type="text" required>
-          <label>Product/Service Type*</label>
-          <input type="text" required>
-          <label>Organic or Conventional*</label>
-          <select required>
-            <option value="">Select</option>
-            <option>Organic</option>
-            <option>Conventional</option>
-          </select>
-          <label>Star Rating*</label>
-          <div class="stars" id="starContainer">
-            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-          </div>
-          <label>Comment*</label>
-          <textarea rows="4" required></textarea>
-          <br>
-          <button type="submit">Submit Review</button>
-        </form>
-        <p><strong>Star Guide:</strong></p>
-        <ul style="padding-left: 20px;">
-          <li>★★★★★ – Excellent, trustworthy, fair</li>
-          <li>★★★★☆ – Good, reliable, minor issues</li>
-          <li>★★★☆☆ – Average, neutral experience</li>
-          <li>★★☆☆☆ – Poor, frustrating</li>
-          <li>★☆☆☆☆ – Predatory, avoid</li>
-        </ul>
-      </div>
+    <div class="sidebar">
+        <a href="index.html">Home</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="connecting.html">Connecting</a>
     </div>
-  </div>
+    <div class="main-content">
+        <div class="review-box">
+            <h2>Recent Reviews</h2>
+            <div class="review-entry"><span class="star-rating">★★★★★</span> Great buyer, paid on time and gave a fair price!</div>
+            <div class="review-entry"><span class="star-rating">★★★☆☆</span> Okay experience, communication could be better.</div>
+        </div>
+
+        <div class="write-review">
+            <h3><a href="leave-review.html">Click here to leave a review</a></h3>
+        </div>
+    </div>
 </body>
 </html>

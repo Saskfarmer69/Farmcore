@@ -1,105 +1,59 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <title>FarmCore</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f5f2ed;
-      margin: 0;
-    }
-    .hero {
-      text-align: center;
-      padding: 40px;
-    }
-    .hero img {
-      max-width: 300px;
-      margin-bottom: 20px;
-    }
-    .hero h1 {
-      font-size: 2.5em;
-      color: #2f5621;
-    }
-    .hero p {
-      font-size: 1.1em;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    .farm-img {
-      margin-top: 30px;
-      max-width: 90%;
-      height: auto;
-      border-radius: 10px;
-    }
-  </style>
+    <title>FarmCore</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f2ed;
+        }
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 160px;
+            height: 100%;
+            background-color: #2e5b2e;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .sidebar a {
+            display: block;
+            margin-bottom: 20px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .main-content {
+            margin-left: 180px;
+            padding: 20px;
+        }
+        .logo {
+            max-width: 200px;
+            margin-bottom: 20px;
+        }
+        .farm-pic {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+            border: 1px solid #ccc;
+        }
+    </style>
 </head>
 <body>
-
-<div class="sidebar">
-  
-  
-  
-</div>
-<style>
-.sidebar {
-  height: 100%;
-  width: 180px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: #2f5621;
-  padding-top: 20px;
-}
-.sidebar a {
-  padding: 12px 20px;
-  text-decoration: none;
-  font-size: 16px;
-  color: white;
-  display: block;
-}
-.sidebar a:hover {
-  background-color: #4a7a36;
-}
-.main {
-  margin-left: 200px;
-  padding: 20px;
-}
-</style>
-
-<div class='main'>
-
-
-  
-  
-  
-
-<style>
-.topnav {
-  background-color: #2f5621;
-  overflow: hidden;
-  padding: 10px 0;
-  text-align: center;
-}
-.topnav a {
-  color: white;
-  padding: 14px 20px;
-  text-decoration: none;
-  font-size: 17px;
-  display: inline-block;
-}
-.topnav a:hover {
-  background-color: #4a7a36;
-}
-</style>
-
-  <div class="hero">
-    <img src="farmcore-logo.png" alt="FarmCore Logo">
-    <h1>FarmCore</h1>
-    <p>We wanted an opportunity for farmers to share their experiences, both good and bad, to smooth the road for every farmer's success. Let the good companies be celebrated for forwarding the industry and let the bad ones be exposed as predators.</p>
-    <br>
-    <img src="farm-photo.jpg" class="farm-img" alt="Farm Photo">
-  </div>
+    <div class="sidebar">
+        <a href="index.html">Home</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="connecting.html">Connecting</a>
+    </div>
+    <div class="main-content">
+        <img src="logo.png" alt="FarmCore Logo" class="logo">
+        <h1>Welcome to FarmCore</h1>
+        <p>Sharing farm experiences and connecting growers with buyers and customers.</p>
+        <img src="farm-pic.jpg" alt="Farm Landscape" class="farm-pic">
+    </div>
 </body>
 </html>
