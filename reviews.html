@@ -68,11 +68,44 @@
 </head>
 <body>
 
-<nav class="topnav">
+<div class="sidebar">
   <a href="index.html">Home</a>
   <a href="reviews.html">Reviews</a>
   <a href="connecting.html">Connecting</a>
-</nav>
+</div>
+<style>
+.sidebar {
+  height: 100%;
+  width: 180px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #2f5621;
+  padding-top: 20px;
+}
+.sidebar a {
+  padding: 12px 20px;
+  text-decoration: none;
+  font-size: 16px;
+  color: white;
+  display: block;
+}
+.sidebar a:hover {
+  background-color: #4a7a36;
+}
+.main {
+  margin-left: 200px;
+  padding: 20px;
+}
+</style>
+
+<div class='main'>
+
+
+  <a href="index.html">Home</a>
+  <a href="reviews.html">Reviews</a>
+  <a href="connecting.html">Connecting</a>
+
 <style>
 .topnav {
   background-color: #2f5621;
@@ -145,5 +178,6 @@
         </ul>
       </div>
     </div>
-  </body>
+  </div>
+</body>
 </html>
