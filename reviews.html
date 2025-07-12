@@ -3,28 +3,55 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>FarmCore Reviews</title>
+  <title>FarmCore - Reviews</title>
+  
+<style>
+.sidebar {
+  height: 100%;
+  width: 180px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #2f5621;
+  padding-top: 20px;
+}
+.sidebar a {
+  padding: 12px 20px;
+  text-decoration: none;
+  font-size: 16px;
+  color: white;
+  display: block;
+}
+.sidebar a:hover {
+  background-color: #4a7a36;
+}
+.main {
+  margin-left: 200px;
+  padding: 20px;
+}
+</style>
+
   <style>
     body {
       font-family: Arial, sans-serif;
       background: #f5f2ed;
       margin: 0;
-      padding: 0;
-    }
-    header {
-      background-color: #2f5621;
-      padding: 20px;
-      text-align: center;
-      color: white;
-      font-size: 1.5rem;
     }
     .container {
-      max-width: 700px;
-      margin: 40px auto;
+      max-width: 900px;
+      margin: 30px auto;
       background: white;
-      padding: 30px;
+      padding: 25px;
       border-radius: 10px;
-      box-shadow: 0 0 10px #ccc;
+      box-shadow: 0 0 8px #ccc;
+    }
+    h2 {
+      color: #2f5621;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 5px;
+    }
+    form {
+      margin-top: 30px;
     }
     input, select, textarea {
       width: 100%;
@@ -39,141 +66,92 @@
       display: block;
       font-weight: bold;
     }
-    .stars {
-      display: flex;
-      justify-content: space-between;
-      margin: 10px 0;
-      direction: ltr;
-      font-size: 1.5em;
+    button {
+      margin-top: 15px;
+      background: #2f5621;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 1em;
+      cursor: pointer;
     }
     .stars span {
+      font-size: 24px;
       cursor: pointer;
-      color: lightgray;
+      color: gray;
     }
     .stars span.selected {
       color: gold;
     }
-    button {
-      background: #2f5621;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      margin-top: 20px;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-    .review-list {
-      margin-top: 30px;
-    }
     .review {
-      background: #f1f1f1;
+      background: #f2f2f2;
       padding: 15px;
       border-radius: 6px;
-      margin-bottom: 10px;
-    }
-    .review .rating {
-      color: gold;
-      margin-bottom: 5px;
+      margin-bottom: 15px;
     }
   </style>
 </head>
 <body>
-  <header>FarmCore Reviews</header>
-  <div class="container">
-    <h2>Leave a Review</h2>
-    <form id="reviewForm">
-      <label for="name">Your Name*</label>
-      <input type="text" id="name" required />
+  
+<div class="sidebar">
+  <a href="index.html">Home</a>
+  <a href="reviews.html">Reviews</a>
+  <a href="connecting.html">Connecting</a>
+</div>
 
-      <label for="email">Email (not published)*</label>
-      <input type="email" id="email" required />
+  <div class="main">
+    <div class="container">
+      <h2>Reviews <a href="#reviewForm" style="float:right; font-size:14px;">➕ Leave a Review</a></h2>
 
-      <label for="buyer">Business/Buyer Name*</label>
-      <input type="text" id="buyer" required />
-
-      <label for="type">Product/Service Type*</label>
-      <input type="text" id="type" required placeholder="e.g. Grain Buyer, Livestock Transport" />
-
-      <label for="category">Organic or Conventional*</label>
-      <select id="category" required>
-        <option value="">-- Select --</option>
-        <option value="organic">Organic</option>
-        <option value="conventional">Conventional</option>
-        <option value="both">Both</option>
-      </select>
-
-      <label>Rating*</label>
-      <div class="stars" id="starContainer">
-        <span data-val="1">&#9733;</span>
-        <span data-val="2">&#9733;</span>
-        <span data-val="3">&#9733;</span>
-        <span data-val="4">&#9733;</span>
-        <span data-val="5">&#9733;</span>
-      </div>
-
-      <p><strong>Star Guide:</strong></p>
-      <ul style="padding-left: 20px;">
-        <li>★★★★★ – Excellent, trustworthy, fair</li>
-        <li>★★★★☆ – Good, reliable, minor issues</li>
-        <li>★★★☆☆ – Average, neutral experience</li>
-        <li>★★☆☆☆ – Poor, frustrating</li>
-        <li>★☆☆☆☆ – Predatory, avoid</li>
-      </ul>
-
-      <label for="comment">Comment*</label>
-      <textarea id="comment" required></textarea>
-
-      <label for="proof">Optional Upload</label>
-      <input type="file" id="proof" />
-
-      <button type="submit">Submit Review</button>
-    </form>
-
-    <h2>Recent Reviews</h2>
-    <div class="review-list" id="reviewList">
       <div class="review">
-        <div class="rating">★★★★★</div>
-        <div><strong>John D.:</strong> Great buyer, paid on time and gave a fair price!</div>
+        <p><strong>⭐⭐⭐⭐⭐</strong></p>
+        <p><strong>Business:</strong> Prairie Grain Co.</p>
+        <p>Reliable buyer, fair weights and timely payments every year.</p>
       </div>
       <div class="review">
-        <div class="rating">★★★☆☆</div>
-        <div><strong>Lisa R.:</strong> Okay experience, communication could be better.</div>
+        <p><strong>⭐⭐☆☆☆</strong></p>
+        <p><strong>Business:</strong> Farm Freight Ltd.</p>
+        <p>Missed the pickup window and hard to get hold of dispatch.</p>
+      </div>
+
+      <hr>
+      <div id="reviewForm">
+        <h3>Post a Review</h3>
+        <form id="reviewSubmission">
+          <label>Name*</label>
+          <input type="text" required>
+          <label>Email*</label>
+          <input type="email" required>
+          <label>Business Name*</label>
+          <input type="text" required>
+          <label>Product/Service Type*</label>
+          <input type="text" required>
+          <label>Organic or Conventional*</label>
+          <select required>
+            <option value="">Select</option>
+            <option>Organic</option>
+            <option>Conventional</option>
+          </select>
+          <label>Star Rating*</label>
+          <div class="stars" id="starContainer">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <label>Comment*</label>
+          <textarea rows="4" required></textarea>
+          <br>
+          <button type="submit">Submit Review</button>
+        </form>
+        <p><strong>Star Guide:</strong></p>
+        <ul style="padding-left: 20px;">
+          <li>★★★★★ – Excellent, trustworthy, fair</li>
+          <li>★★★★☆ – Good, reliable, minor issues</li>
+          <li>★★★☆☆ – Average, neutral experience</li>
+          <li>★★☆☆☆ – Poor, frustrating</li>
+          <li>★☆☆☆☆ – Predatory, avoid</li>
+        </ul>
       </div>
     </div>
   </div>
-
-  <script>
-    const stars = document.querySelectorAll("#starContainer span");
-    let selectedRating = 0;
-    stars.forEach((star, i) => {
-      star.addEventListener("click", () => {
-        selectedRating = i + 1;
-        updateStars();
-      });
-    });
-    function updateStars() {
-      stars.forEach((s, i) => {
-        s.classList.toggle("selected", i < selectedRating);
-      });
-    }
-
-    document.getElementById("reviewForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-      const name = document.getElementById("name").value;
-      const comment = document.getElementById("comment").value;
-      if (selectedRating === 0 || name.trim() === "" || comment.trim() === "") return;
-
-      const reviewDiv = document.createElement("div");
-      reviewDiv.className = "review";
-      reviewDiv.innerHTML = `
-        <div class="rating">${"★".repeat(selectedRating)}${"☆".repeat(5 - selectedRating)}</div>
-        <div><strong>${name}:</strong> ${comment}</div>
-      `;
-      document.getElementById("reviewList").prepend(reviewDiv);
-      this.reset();
-      selectedRating = 0;
-      updateStars();
-    });
-  </script>
 </body>
 </html>

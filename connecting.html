@@ -4,19 +4,38 @@
 <head>
   <meta charset="UTF-8" />
   <title>FarmCore - Connecting with Customers</title>
+  
+<style>
+.sidebar {
+  height: 100%;
+  width: 180px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #2f5621;
+  padding-top: 20px;
+}
+.sidebar a {
+  padding: 12px 20px;
+  text-decoration: none;
+  font-size: 16px;
+  color: white;
+  display: block;
+}
+.sidebar a:hover {
+  background-color: #4a7a36;
+}
+.main {
+  margin-left: 200px;
+  padding: 20px;
+}
+</style>
+
   <style>
     body {
       font-family: Arial, sans-serif;
       background: #f5f2ed;
       margin: 0;
-      padding: 0;
-    }
-    header {
-      background-color: #2f5621;
-      padding: 20px;
-      text-align: center;
-      color: white;
-      font-size: 1.5rem;
     }
     .container {
       max-width: 900px;
@@ -32,7 +51,7 @@
       padding-bottom: 5px;
     }
     form {
-      margin-bottom: 30px;
+      margin-top: 30px;
     }
     input, select, textarea {
       width: 100%;
@@ -63,80 +82,20 @@
       border-radius: 6px;
       margin-bottom: 15px;
     }
-    .listing h3 {
-      margin: 0;
-      color: #333;
-    }
-    .listing p {
-      margin: 5px 0;
-    }
   </style>
 </head>
 <body>
-
-<style>
-.sidebar {
-  height: 100%;
-  width: 180px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: #2f5621;
-  padding-top: 20px;
-}
-.sidebar a {
-  padding: 12px 20px;
-  text-decoration: none;
-  font-size: 16px;
-  color: white;
-  display: block;
-}
-.sidebar a:hover {
-  background-color: #4a7a36;
-}
-.main {
-  margin-left: 200px;
-  padding: 20px;
-}
-</style>
-
-
+  
 <div class="sidebar">
   <a href="index.html">Home</a>
   <a href="reviews.html">Reviews</a>
   <a href="connecting.html">Connecting</a>
 </div>
 
-<div class='main'>
-  <header>Connecting with Customers</header>
-  <div class="container">
-    <h2>Post a Product for Sale</h2>
-    <form id="productForm">
-      <label for="sellerName">Your Name*</label>
-      <input type="text" id="sellerName" required>
+  <div class="main">
+    <div class="container">
+      <h2>Available Listings <a href="#productForm" style="float:right; font-size:14px;">➕ Post a Product</a></h2>
 
-      <label for="productType">Category*</label>
-      <select id="productType" required>
-        <option value="">-- Select --</option>
-        <option value="Grain">Grain</option>
-        <option value="Meat">Meat</option>
-        <option value="Produce">Produce</option>
-      </select>
-
-      <label for="productName">Product Name*</label>
-      <input type="text" id="productName" placeholder="e.g. Hard Red Spring Wheat" required>
-
-      <label for="productDesc">Details (optional)</label>
-      <textarea id="productDesc" placeholder="Add variety, quantity, delivery terms etc."></textarea>
-
-      <label for="contactInfo">Contact Info*</label>
-      <input type="text" id="contactInfo" placeholder="Phone or email" required>
-
-      <button type="submit">Post Product</button>
-    </form>
-
-    <h2>Available Listings</h2>
-    <div id="listings">
       <div class="listing">
         <h3>Grass-Fed Beef</h3>
         <p><strong>Category:</strong> Meat</p>
@@ -151,33 +110,35 @@
         <p><strong>Contact:</strong> joe@example.com</p>
         <p><strong>Details:</strong> 5 MT available, stored in aerated bins, cleaned.</p>
       </div>
+
+      <hr>
+      <div id="productForm">
+        <h3>Post New Product</h3>
+        <form>
+          <label for="sellerName">Your Name*</label>
+          <input type="text" id="sellerName" required>
+
+          <label for="productType">Category*</label>
+          <select id="productType" required>
+            <option value="">-- Select --</option>
+            <option value="Grain">Grain</option>
+            <option value="Meat">Meat</option>
+            <option value="Produce">Produce</option>
+          </select>
+
+          <label for="productName">Product Name*</label>
+          <input type="text" id="productName" placeholder="e.g. Hard Red Spring Wheat" required>
+
+          <label for="productDesc">Details (optional)</label>
+          <textarea id="productDesc" placeholder="Add variety, quantity, delivery terms etc."></textarea>
+
+          <label for="contactInfo">Contact Info*</label>
+          <input type="text" id="contactInfo" placeholder="Phone or email" required>
+
+          <button type="submit">Post Product</button>
+        </form>
+      </div>
     </div>
   </div>
-
-  <script>
-    document.getElementById("productForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-      const name = document.getElementById("sellerName").value;
-      const type = document.getElementById("productType").value;
-      const product = document.getElementById("productName").value;
-      const desc = document.getElementById("productDesc").value;
-      const contact = document.getElementById("contactInfo").value;
-
-      if (!name || !type || !product || !contact) return;
-
-      const div = document.createElement("div");
-      div.className = "listing";
-      div.innerHTML = `
-        <h3>${product}</h3>
-        <p><strong>Category:</strong> ${type}</p>
-        <p><strong>Seller:</strong> ${name}</p>
-        <p><strong>Contact:</strong> ${contact}</p>
-        <p><strong>Details:</strong> ${desc || "—"}</p>
-      `;
-      document.getElementById("listings").prepend(div);
-      this.reset();
-    });
-  </script>
-</div>
 </body>
 </html>
