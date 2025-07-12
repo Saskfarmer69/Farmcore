@@ -5,32 +5,6 @@
   <meta charset="UTF-8" />
   <title>FarmCore - Reviews</title>
   
-<style>
-.sidebar {
-  height: 100%;
-  width: 180px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: #2f5621;
-  padding-top: 20px;
-}
-.sidebar a {
-  padding: 12px 20px;
-  text-decoration: none;
-  font-size: 16px;
-  color: white;
-  display: block;
-}
-.sidebar a:hover {
-  background-color: #4a7a36;
-}
-.main {
-  margin-left: 200px;
-  padding: 20px;
-}
-</style>
-
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -93,13 +67,32 @@
   </style>
 </head>
 <body>
-  
-<div class="sidebar">
+
+<nav class="topnav">
   <a href="index.html">Home</a>
   <a href="reviews.html">Reviews</a>
   <a href="connecting.html">Connecting</a>
-</div>
+</nav>
+<style>
+.topnav {
+  background-color: #2f5621;
+  overflow: hidden;
+  padding: 10px 0;
+  text-align: center;
+}
+.topnav a {
+  color: white;
+  padding: 14px 20px;
+  text-decoration: none;
+  font-size: 17px;
+  display: inline-block;
+}
+.topnav a:hover {
+  background-color: #4a7a36;
+}
+</style>
 
+  
   <div class="main">
     <div class="container">
       <h2>Reviews <a href="#reviewForm" style="float:right; font-size:14px;">➕ Leave a Review</a></h2>
@@ -152,6 +145,5 @@
         </ul>
       </div>
     </div>
-  </div>
-</body>
+  </body>
 </html>
