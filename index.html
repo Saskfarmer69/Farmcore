@@ -1,59 +1,96 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FarmCore</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f5f2ed;
-            color: #333;
-        }
-        header {
-            background: #2f5621;
-            padding: 20px;
-            text-align: center;
-        }
-        header img {
-            height: 100px;
-        }
-        h1 {
-            color: white;
-            margin: 10px 0 0;
-        }
-        .hero {
-            background-image: url('farm-photo.jpg');
-            background-size: cover;
-            background-position: center;
-            height: 60vh;
-        }
-        .content {
-            padding: 20px;
-            text-align: center;
-        }
-        a.button {
-            display: inline-block;
-            background: #2f5621;
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 6px;
-            margin-top: 20px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <title>FarmCore</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f2ed;
+      margin: 0;
+    }
+    .hero {
+      text-align: center;
+      padding: 40px;
+    }
+    .hero img {
+      max-width: 300px;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: 2.5em;
+      color: #2f5621;
+    }
+    .hero p {
+      font-size: 1.1em;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .button {
+      margin-top: 25px;
+      padding: 12px 25px;
+      background-color: #2f5621;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 1em;
+    }
+    .farm-img {
+      margin-top: 30px;
+      max-width: 90%;
+      height: auto;
+      border-radius: 10px;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <img src="farmcore-logo.png" alt="FarmCore Logo" />
-        <h1>FarmCore</h1>
-    </header>
-    <div class="hero"></div>
-    <div class="content">
-        <h2>Welcome to FarmCore</h2>
-        <p>Sharing real reviews to help farmers make better decisions.</p>
-        <a class="button" href="reviews.html">Read or Leave a Review</a>
-    </div>
+
+<style>
+.sidebar {
+  height: 100%;
+  width: 180px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #2f5621;
+  padding-top: 20px;
+}
+.sidebar a {
+  padding: 12px 20px;
+  text-decoration: none;
+  font-size: 16px;
+  color: white;
+  display: block;
+}
+.sidebar a:hover {
+  background-color: #4a7a36;
+}
+.main {
+  margin-left: 200px;
+  padding: 20px;
+}
+</style>
+
+
+<div class="sidebar">
+  <a href="index.html">Home</a>
+  <a href="reviews.html">Reviews</a>
+  <a href="connecting.html">Connecting</a>
+</div>
+
+<div class='main'>
+  <div class="hero">
+    <img src="farmcore-logo.png" alt="FarmCore Logo">
+    <h1>FarmCore</h1>
+    <p>We wanted an opportunity for farmers to share their experiences, both good and bad, to smooth the road for every farmer's success. Let the good companies be celebrated for forwarding the industry and let the bad ones be exposed as predators.</p>
+    <br>
+    <a class="button" href="reviews.html">Read & Post Reviews</a>
+    <a class="button" href="connecting.html">Connecting with Customers</a>
+    <br>
+    <img src="farm-photo.jpg" class="farm-img" alt="Farm Photo">
+  </div>
+</div>
 </body>
 </html>
